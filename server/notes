@@ -1,0 +1,18 @@
+packages:
+- express
+- pg
+- pg-hstore
+- sequelize
+- cors - to apply cors requests
+- dotenv - to use environment
+- i18n
+- bcrypt - to hash
+- jwt - json web token
+
+dev-dependences:
+- nodemon
+
+
+TODOS: 
+- add global response handler 
+- add validation 
