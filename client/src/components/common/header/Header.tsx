@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import CompanyLogo from "@/assets/images/company-logo.png";
 import cls from "./header.module.scss";
+import classNames from "classnames";
+import { LogoutIcon } from "@/utils/icons";
+import LangPicker from "@/components/UI/common/lang-picker/LangPicker";
+import Switch from "@/components/UI/common/dropdown-menu/switch/Switch";
 
 export default function Header() {
   const [theme, setTheme] = useState(false);
@@ -18,11 +22,11 @@ export default function Header() {
           </div>
         </div>
         <div className={cls.header__right}>
-          <div className={cls.header__lang}>lang-picker</div>
-          <button className={cls.header__lang} onClick={() => setTheme(!theme)}>
-            dark-mode
+          <LangPicker />
+          <Switch setTheme={setTheme} theme={theme}/>
+          <button className={cls.header__logout}>
+            <LogoutIcon />
           </button>
-          <div className={cls.header__logout}>logout</div>
         </div>
       </div>
     </header>

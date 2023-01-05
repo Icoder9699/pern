@@ -84,7 +84,6 @@ export default function AdminLayout({ children }: any) {
           <button onClick={() => onToggleDrawer(true)}>Open</button>
           <Outlet />
         </main>
-        <footer>footer</footer>
       </div>
     </div>
   );

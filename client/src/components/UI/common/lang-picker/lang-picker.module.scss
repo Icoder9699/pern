@@ -1,0 +1,24 @@
+.lang {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  &__list {
+    position: absolute;
+    border-radius: 2px;
+    background: $bg-color;
+    left: 10px;
+    top: 120%;
+    box-shadow: 0 0 1px $primary-color;
+    width: 100px;
+
+    li {
+      cursor: pointer;
+      padding: 5px;
+      &:hover {
+        background-color: $primary-color;
+        color: $light-color;
+      }
+    }
+  }
+}

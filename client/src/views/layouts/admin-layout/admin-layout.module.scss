@@ -17,7 +17,10 @@
   }
 
   main {
-    margin: 0 16px;
     flex: auto;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid rgb(233, 233, 233);
+    border-radius: 2px;
   }
 }
