@@ -604,13 +604,7 @@ export const SubmenuIcon = () => (
     version="1.1"
   >
     <title>round_line</title>
-    <g
-      id="页面-1"
-      stroke="none"
-      strokeWidth="1"
-      fill="none"
-      fillRule="evenodd"
-    >
+    <g id="页面-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="Shape" transform="translate(-144.000000, 0.000000)">
         <g id="round_line" transform="translate(144.000000, 0.000000)">
           <path
@@ -625,6 +619,34 @@ export const SubmenuIcon = () => (
           ></path>
         </g>
       </g>
+    </g>
+  </svg>
+);
+
+export const ArrowLeft = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="800px"
+    height="800px"
+    viewBox="0 0 20 20"
+  >
+    <rect x="0" fill="none" width="10" height="10" />
+    <g>
+      <path stroke="currentColor" d="M14 5l-5 5 5 5-1 2-7-7 7-7z" />
+    </g>
+  </svg>
+);
+
+export const ArrowRight = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="800px"
+    height="800px"
+    viewBox="0 0 20 20"
+  >
+    <rect x="0" fill="none" width="10" height="10" />
+    <g>
+      <path stroke="currentColor" d="M6 15l5-5-5-5 1-2 7 7-7 7z" />
     </g>
   </svg>
 );

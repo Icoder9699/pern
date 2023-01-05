@@ -1,1 +1,86 @@
-
+@import url('./_fonts.scss');
+/*Обнуление*/
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+   font-family: "Gilroy";
+   box-sizing: border-box !important;
+ 
+   &:before,
+   &:after {
+     -moz-box-sizing: border-box;
+     -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+   }
+ }
+ 
+ button {
+   cursor: pointer;
+   &::-moz-focus-inner {
+     padding: 0;
+     border: 0;
+   }
+ }
+ 
+ a {
+   text-decoration: none;
+ 
+   &:visited {
+     text-decoration: none;
+   }
+ 
+   &:hover {
+     text-decoration: none;
+   }
+ 
+   &:active,
+   &:focus {
+     outline: none;
+   }
+ }
+ 
+ ul {
+   list-style: none;
+   margin: 0;
+ 
+   li {
+     list-style: none;
+   }
+ }
+ 
+ body[data-theme='dark']{
+   --light-color: #fff;
+   --primary-color: rgb(75, 41, 125);
+   --shadow: 0 0 3px hsl(0,0%, 100%);
+   --colors-text: hsl(0,0%, 100%);
+   --colors-bg: hsl(207,20%,17%);
+   --colors-ui-base: rgb(38, 45, 49);
+ }
+ body[data-theme='light']{
+   --light-color: #fff;
+   --primary-color: rgb(75, 41, 125);
+   --shadow: 0 0 3px hsl(0, 0%, 51%);
+   --colors-text:  hsl(0, 3%, 7%);
+   --colors-bg: rgb(255, 255, 255);
+   --colors-ui-base: rgb(255, 255, 255);
+ }
+ 
+ body{
+   margin: 0;
+   font-family: 'Gilroy';
+   color: var(--colors-text)!important;
+   font-weight: var(--fw-light)!important;
+   background-color: var(--colors-ui-base)!important;
+ }
+ 
+ 
+ .container {
+   max-width: 1230px;
+   margin: 0 auto;
+ }
+ 
+ .flex {
+   display: flex;
+   justify-content: space-between;
+ }

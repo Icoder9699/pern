@@ -4,11 +4,12 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
 import UserLogo from "@/assets/images/user-logo.png";
+import { ArrowLeft, ArrowRight } from "@/utils/icons";
 
 interface IProps {
   title?: string;
   menus: any;
-  onToggleDrawer: (close:boolean) => void;
+  onToggleDrawer: (close: boolean) => void;
   isOpen: boolean;
 }
 
@@ -23,7 +24,7 @@ export default function AdminDrawer(props: IProps) {
 
   useEffect(() => {
     props.onToggleDrawer(false);
-    setSelectedMenuId(null)
+    setSelectedMenuId(null);
   }, [location.pathname]);
 
   return (
@@ -33,13 +34,16 @@ export default function AdminDrawer(props: IProps) {
           [cls.open]: !props.isOpen,
         })}
       >
-        <img src={UserLogo} alt="" />
+        <img src={UserLogo} alt="user-logo" />
         {props.isOpen && <h2>{props.title ? props.title : "Kenty"}</h2>}
       </div>
+      <button className={cls.drawer__btn} onClick={() => props.onToggleDrawer(!props.isOpen)}>
+        {props.isOpen ? <ArrowLeft /> : <ArrowRight />}
+      </button>
       <div className={cls.drawer__body}>
         {props.menus.map((menu: any, idx: any) => (
-          <DropdownMenu 
-            isOpen={props.isOpen} 
+          <DropdownMenu
+            isOpen={props.isOpen}
             index={idx}
             key={idx}
             {...menu}

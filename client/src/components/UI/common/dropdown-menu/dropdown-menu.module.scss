@@ -5,8 +5,7 @@
   text-transform: capitalize;
 
   &__title {
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 10px 15px;
     display: flex;
     overflow: hidden;
     .icon {
@@ -25,16 +24,14 @@
   }
 
   &__submenus {
-    padding-left: 0.5rem;
-    margin: 5px;
     &_tiny {
+      border-radius: 2px;
       position: absolute;
       top: 0;
       right: 0;
       left: 110%;
       width: 150px;
       border: 1px solid;
-      border-radius: 8px;
       background: $bg-color;
       padding-left: 0;
     }
@@ -42,11 +39,11 @@
 
   .submenu {
     padding: 8px;
-    border-radius: 7px;
     &:hover {
       box-shadow: 0 0 3px $primary-color;
     }
     a {
+      padding-left: 15px;
       display: flex;
       align-items: center;
     }
