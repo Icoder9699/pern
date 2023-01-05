@@ -1,0 +1,66 @@
+.menu {
+  position: relative;
+  cursor: pointer;
+  color: $primary-color;
+  text-transform: capitalize;
+
+  &__title {
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    overflow: hidden;
+    .icon {
+      svg {
+        min-width: 25px;
+        min-height: 25px;
+        max-width: 25px;
+        max-height: 25px;
+        object-fit: cover;
+      }
+      margin-right: 25px;
+    }
+    &:hover {
+      box-shadow: 0 0 3px $primary-color;
+    }
+  }
+
+  &__submenus {
+    padding-left: 0.5rem;
+    margin: 5px;
+    &_tiny {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 110%;
+      width: 150px;
+      border: 1px solid;
+      border-radius: 8px;
+      background: $bg-color;
+      padding-left: 0;
+    }
+  }
+
+  .submenu {
+    padding: 8px;
+    border-radius: 7px;
+    &:hover {
+      box-shadow: 0 0 3px $primary-color;
+    }
+    a {
+      display: flex;
+      align-items: center;
+    }
+    span {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+      margin-right: 5px;
+    }
+  }
+
+  .active {
+    background-color: $primary-color;
+    color: $light-color;
+  }
+}

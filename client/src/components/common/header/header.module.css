@@ -1,0 +1,13 @@
+.header {
+   border-bottom: 1px solid #ccc;
+   padding: 15px;
+   background: var(--colors-bg);
+}
+
+.header__right {
+   display: flex;
+}
+
+.header__right div:first-child {
+   margin-right: 10px;
+}

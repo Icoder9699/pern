@@ -1,0 +1,24 @@
+- admin panel:
+   index
+   brand: 
+      list: edit, delete, brand,
+      add
+   product:
+      list: edit, delete, product.
+      add,
+   category: 
+      list: edit, delete, category.
+      add,
+   user: 
+      list: edit, delete, user.
+
+- user:
+   index
+   basket
+   edit
+
+- public 
+   products 
+   product:id
+   
+
