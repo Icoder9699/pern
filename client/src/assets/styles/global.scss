@@ -56,6 +56,7 @@
    --colors-text: hsl(0,0%, 100%);
    --colors-bg: hsl(207,20%,17%);
    --colors-ui-base: rgb(38, 45, 49);
+   --pale-color: rgba(255, 255, 255, 0.1);
  }
  body[data-theme='light']{
    --light-color: #fff;
@@ -64,6 +65,7 @@
    --colors-text:  hsl(0, 3%, 7%);
    --colors-bg: rgb(255, 255, 255);
    --colors-ui-base: rgb(255, 255, 255);
+   --pale-color: rgba(2, 2, 2, 0.1)
  }
  
  body{

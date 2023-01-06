@@ -1,9 +1,10 @@
-import DropdownMenu from "@/components/UI/common/dropdown-menu/DropdownMenu";
-import cls from "./admin-drawer.module.scss";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import classNames from "classnames";
+
+import cls from "./admin-drawer.module.scss";
 import UserLogo from "@/assets/images/user-logo.png";
+import DropdownMenu from "@/components/UI/common/dropdown-menu/DropdownMenu";
 import { ArrowLeft, ArrowRight } from "@/utils/icons";
 
 interface IProps {
@@ -19,6 +20,10 @@ export default function AdminDrawer(props: IProps) {
   const [selectedMenuId, setSelectedMenuId] = useState<null | number>(null);
 
   const handleSelectMenu = (index: number) => {
+    if (selectedMenuId == index) {
+      setSelectedMenuId(null)
+      return
+    }
     setSelectedMenuId(index);
   };
 

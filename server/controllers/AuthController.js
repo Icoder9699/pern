@@ -44,6 +44,7 @@ class UserController {
 
   async login(req, res, next) {
     const { email, password } = req.body;
+    console.log(email, password);
 
     if (!email && !password) {
       return next(new ApiError.badRequest('Пожалуйста введите нужные данные!'))
@@ -72,6 +73,11 @@ class UserController {
    const token = generateJwt(req.user.id, req.user.email, req.user.email)
 
     res.json({token});
+  }
+
+  async getAll(req,res,next) {
+    const users = await User.findAll()
+    return res.json({users})
   }
 }
 

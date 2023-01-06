@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
 import cls from "./dropdown-menu.module.scss";
@@ -26,7 +25,7 @@ export default function DropdownMenu(props: IProps) {
   return (
     <div className={cls.menu}>
       <div
-        className={cls.menu__title}
+        className={classNames(cls.menu__title, {[cls.menu__title_open]: !props.isOpen})}
         onClick={() => props.selectMenu(props.index)}
       >
         <span className={cls.icon}>{props.icon()}</span>
@@ -34,8 +33,8 @@ export default function DropdownMenu(props: IProps) {
       </div>
       {props.selectedMenuId === props.index && (
         <ul className={classNames(cls.menu__submenus, {[cls.menu__submenus_tiny]: !props.isOpen})}>
-          {props.submenus &&
-            props.submenus.map((submenu: ISubmenu, idx) => {
+          {
+            props.submenus?.map((submenu: ISubmenu, idx) => {
               return (
                 <li className={classNames(cls.submenu, {[cls.active]: location.pathname === `/${submenu.path}`})} key={idx}>
                   <NavLink to={submenu.path}>

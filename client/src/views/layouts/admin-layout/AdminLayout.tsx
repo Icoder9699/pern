@@ -1,18 +1,23 @@
 import { ADMIN_ROUTE } from "@/utils/constants/routes";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import Header from "@/components/common/header/Header";
 import AdminDrawer from "@/components/UI/admin/admin-drawer/AdminDrawer";
 import cls from "./admin-layout.module.scss";
 import { useState } from "react";
 import classNames from "classnames";
-import { BrandsIcon, CategoriesIcon, ProductsIcon, UsersIcon } from "@/utils/icons";
+import {
+  BrandsIcon,
+  CategoriesIcon,
+  ProductsIcon,
+  UsersIcon,
+} from "@/utils/icons";
 import useAdminLayout from "./AdminLayout";
 
 const menus = [
   {
     title: "users",
-    icon: () => <UsersIcon/>,
+    icon: () => <UsersIcon />,
     submenus: [
       {
         title: "List",
@@ -26,7 +31,7 @@ const menus = [
   },
   {
     title: "products",
-    icon: () => <ProductsIcon/>,
+    icon: () => <ProductsIcon />,
     submenus: [
       {
         title: "List",
@@ -40,7 +45,7 @@ const menus = [
   },
   {
     title: "brands",
-    icon: () => <BrandsIcon/>,
+    icon: () => <BrandsIcon />,
     submenus: [
       {
         title: "List",
@@ -54,7 +59,7 @@ const menus = [
   },
   {
     title: "categories",
-    icon: () => <CategoriesIcon/>,
+    icon: () => <CategoriesIcon />,
     submenus: [
       {
         title: "List",
@@ -70,18 +75,23 @@ const menus = [
 
 export default function AdminLayout({ children }: any) {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation()
 
-  const onToggleDrawer = (boolean:boolean) => {
+  const onToggleDrawer = (boolean: boolean) => {
     setIsOpen((isOpen) => (isOpen = boolean));
   };
 
   return (
     <div className={cls.layout}>
-      <AdminDrawer menus={menus} onToggleDrawer={onToggleDrawer} isOpen={isOpen} />
-      <div className={classNames(cls.main, {[cls.active]: !isOpen})}>
+      <AdminDrawer
+        menus={menus}
+        onToggleDrawer={onToggleDrawer}
+        isOpen={isOpen}
+      />
+      <div className={classNames(cls.section, { [cls.section__open]: isOpen })}>
         <Header />
         <main>
-          <button onClick={() => onToggleDrawer(true)}>Open</button>
+          <h1 className={cls.section__title}>Page: {location.pathname}</h1>
           <Outlet />
         </main>
       </div>

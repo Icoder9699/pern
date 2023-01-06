@@ -10,6 +10,9 @@ export default defineConfig({
       "@": resolve(__dirname, "src"),
     },
   },
+  define: {
+    'process.env': {}
+  },
   css: {
     preprocessorOptions: {
       scss: {

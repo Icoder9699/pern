@@ -1,5 +1,6 @@
 .drawer {
-  position: relative;
+  position: fixed;
+  min-height: 100vh;
   flex: 0 0 60px;
   max-width: 60px;
   min-width: 60px;
@@ -55,5 +56,6 @@
   }
 
   &__body {
+    margin: 5px;
   }
 }

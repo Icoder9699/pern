@@ -668,6 +668,6 @@ export const LogoutIcon = () => (
     <path
       d="M28.16,17.28a1,1,0,0,0-1.41,1.41L30.13,22H15.63a1,1,0,0,0-1,1,1,1,0,0,0,1,1h14.5l-3.38,3.46a1,1,0,1,0,1.41,1.41L34,23.07Z"
     />
-    <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+    <rect x="0" y="0" width="36" height="36" fillOpacity="0" />
   </svg>
 );

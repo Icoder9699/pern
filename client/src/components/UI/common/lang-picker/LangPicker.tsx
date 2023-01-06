@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useState } from "react";
 import cls from "./lang-picker.module.scss";
 
@@ -7,10 +8,10 @@ export default function LangPicker() {
   const [isOpen, setOpen] = useState(false);
   const [lang, setLang] = useState("uz");
 
-  const setLanguage = (lang:string) => {
-   setOpen(false)
-   setLang(lang)
-  }
+  const setLanguage = (lang: string) => {
+    setOpen(false);
+    setLang(lang);
+  };
 
   return (
     <div className={cls.lang}>
@@ -18,13 +19,12 @@ export default function LangPicker() {
         <span>{lang}</span>
         <img src="" alt="" />
       </div>
-      {isOpen && (
-        <ul className={cls.lang__list}>
-          {langs.map((lang) => (
-            <li onClick={() => setLanguage(lang)}>{lang}</li>
-          ))}
-        </ul>
-      )}
+
+      <ul className={classNames(cls.lang__list, {[cls.lang__list_active]: isOpen})}>
+        {langs.map((lang, index) => (
+          <li onClick={() => setLanguage(lang)} key={index}>{lang}</li>
+        ))}
+      </ul>
     </div>
   );
 }
