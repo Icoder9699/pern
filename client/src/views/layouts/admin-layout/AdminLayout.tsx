@@ -77,8 +77,8 @@ export default function AdminLayout({ children }: any) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation()
 
-  const onToggleDrawer = (boolean: boolean) => {
-    setIsOpen((isOpen) => (isOpen = boolean));
+  const onToggleDrawer = (show: boolean) => {
+    setIsOpen((isOpen) => (isOpen = show));
   };
 
   return (

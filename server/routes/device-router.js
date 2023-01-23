@@ -6,7 +6,7 @@ const DeviceController = require("../controllers/DeviceController");
 const rules = require("../utils/constants");
 
 router.post("/", checkRoleMiddleware(rules.admin), DeviceController.create);
-router.get("/", DeviceController.getAll);
+router.get("/list", DeviceController.getAll);
 router.get("/:id", DeviceController.getOne);
 
 module.exports = router;

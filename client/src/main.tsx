@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom/client";
-import "@/assets/styles/global.scss"
+import "@/assets/styles/global.scss";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
-import { BrowserRouter } from "react-router-dom";
+import { createStandaloneToast } from "@chakra-ui/toast";
+const { ToastContainer } = createStandaloneToast();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <ChakraProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
+    <ToastContainer />
   </ChakraProvider>
 );

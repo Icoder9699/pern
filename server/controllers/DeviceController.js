@@ -77,19 +77,18 @@ class DeviceController {
     }
 
     // TODO: add response format
-    res.json({ data: devices });
+    res.json({ ...devices });
   }
 
   async getOne(req, res) {
     const { id } = req.params;
-   console.log('ID', id);
-    const device = await Device.findOne({ 
+    const product = await Device.findOne({ 
       where: { id },
       // model, fieldName
-      include: [{model: DeviceInfo, as:'info'}]
+      // include: [{model: DeviceInfo, as: 'info'}]
     });
 
-    res.json({ data: device });
+    res.json({product});
   }
 }
 

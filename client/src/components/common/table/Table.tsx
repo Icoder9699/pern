@@ -1,13 +1,14 @@
 import useTable from "./useTable";
 import cls from "./table.module.scss";
+import { memo } from "react";
 
 interface IProps {
   rows?: string[];
-  data?: string[];
+  children: any;
+  isLoading?: boolean;
 }
 
-export default function Table({ data, rows }: IProps) {
-   
+export default memo(function Table({ rows, children }: IProps) {
   return (
     <table className={cls.table}>
       <thead className={cls.table__head}>
@@ -17,21 +18,7 @@ export default function Table({ data, rows }: IProps) {
           ))}
         </tr>
       </thead>
-      <tbody>
-        {data ? (
-          data.map((col:any) => (
-            <tr key={col.id}>
-              <td>{col.id}</td>
-              <td>{col.email}</td>
-              <td>{col.password}</td>
-              <td>{col.createdAt}</td>
-              <td>{col.role}</td>
-            </tr>
-          ))
-        ) : (
-          <h1>Empty Table</h1>
-        )}
-      </tbody>
+      <tbody>{children}</tbody>
     </table>
   );
-}
+});

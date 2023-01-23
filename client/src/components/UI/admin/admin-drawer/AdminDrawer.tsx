@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import classNames from "classnames";
 
 import cls from "./admin-drawer.module.scss";
@@ -14,15 +14,15 @@ interface IProps {
   isOpen: boolean;
 }
 
-export default function AdminDrawer(props: IProps) {
+export default memo(function AdminDrawer(props: IProps) {
   const location = useLocation();
 
   const [selectedMenuId, setSelectedMenuId] = useState<null | number>(null);
 
   const handleSelectMenu = (index: number) => {
     if (selectedMenuId == index) {
-      setSelectedMenuId(null)
-      return
+      setSelectedMenuId(null);
+      return;
     }
     setSelectedMenuId(index);
   };
@@ -42,7 +42,10 @@ export default function AdminDrawer(props: IProps) {
         <img src={UserLogo} alt="user-logo" />
         {props.isOpen && <h2>{props.title ? props.title : "Kenty"}</h2>}
       </div>
-      <button className={cls.drawer__btn} onClick={() => props.onToggleDrawer(!props.isOpen)}>
+      <button
+        className={cls.drawer__btn}
+        onClick={() => props.onToggleDrawer(!props.isOpen)}
+      >
         {props.isOpen ? <ArrowLeft /> : <ArrowRight />}
       </button>
       <div className={cls.drawer__body}>
@@ -59,4 +62,4 @@ export default function AdminDrawer(props: IProps) {
       </div>
     </div>
   );
-}
+});
