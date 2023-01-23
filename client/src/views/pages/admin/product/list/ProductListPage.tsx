@@ -2,23 +2,25 @@ import Table from "@/components/common/table/Table";
 import { currencyFormatter } from "@/utils/functions/numberFormatter";
 import makeStorageUrl from "@/utils/functions/makeStorageUrl";
 import { EditIcon, EyeIcon, TrashIcon } from "@/utils/icons";
-import usePorudctList from "./usePorudctList";
 import useFetch from "@/hooks/useFetch";
-import { useEffect } from "react";
+import useProductList from "./useProductList";
+import { useLocation, useNavigate } from "react-router-dom";
+import { ADMIN_ROUTE } from "@/utils/constants/routes";
 
 const rows = ["№", "name", "price", "rating", "image", "brandId", "actions"];
 
-let renderCount = 0;
 
 export default function ProductListPAge() {
   const { isLoading,data } = useFetch("/device/list");
 
-  console.log("ProductListPge", renderCount++, data, isLoading);
+  const { } = useProductList()
+  const navigate = useNavigate()
+
 
   return (
     <div style={{ margin: "0 -20px" }}>
-      <Table rows={rows}>
-        {data?.rows.length ? (
+      <Table rows={rows} isLoading={isLoading}>
+        {data?.rows.length && (
           data.rows?.map((col: any) => (
             <tr key={col.id}>
               <td>{col.id}</td>
@@ -30,7 +32,7 @@ export default function ProductListPAge() {
               </td>
               <td>{col.brandId || "not found"}</td>
               <td>
-                <span>
+                <span onClick={() => navigate(`/admin/product/${col.id}`)}>
                   <EyeIcon />
                 </span>
                 <span>
@@ -42,16 +44,6 @@ export default function ProductListPAge() {
               </td>
             </tr>
           ))
-        ) : (
-          <tr>
-            <td colSpan={12}>
-              {isLoading ? (
-                <h2 style={{ textAlign: "center" }}>Loading...</h2>
-              ) : (
-                <h2 style={{ textAlign: "center" }}>Empty Table</h2>
-              )}
-            </td>
-          </tr>
         )}
       </Table>
     </div>

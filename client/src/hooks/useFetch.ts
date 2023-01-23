@@ -7,8 +7,6 @@ export default function useFetch(url: string) {
   const [data, setData] = useState<any>(null);
   const [error, setError] = useState<string | null>(null);
 
-  console.log('worked useFetch', url);
-  
   useEffect(() => {
     setLoading(true);
     setData(null);

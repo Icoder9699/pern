@@ -5,10 +5,10 @@ import { memo } from "react";
 interface IProps {
   rows?: string[];
   children: any;
-  isLoading?: boolean;
+  isLoading: boolean;
 }
 
-export default memo(function Table({ rows, children }: IProps) {
+export default memo(function Table({ rows, isLoading, children }: IProps) {
   return (
     <table className={cls.table}>
       <thead className={cls.table__head}>
@@ -18,7 +18,20 @@ export default memo(function Table({ rows, children }: IProps) {
           ))}
         </tr>
       </thead>
-      <tbody>{children}</tbody>
+      <tbody>{children ? children : (
+        (
+          <tr>
+            <td colSpan={12}>
+              {isLoading ? (
+                <h2 style={{ textAlign: "center" }}>Loading...</h2>
+              ) : (
+                <h2 style={{ textAlign: "center" }}>Empty Table</h2>
+              )}
+            </td>
+          </tr>
+        )
+      )}</tbody>
+      
     </table>
   );
 });
