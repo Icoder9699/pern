@@ -23,7 +23,14 @@
       color: $primary-color;
       padding-bottom: 20px;
     }
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+    }
+    
   }
+
 
   header {
     flex: 0 0 auto;

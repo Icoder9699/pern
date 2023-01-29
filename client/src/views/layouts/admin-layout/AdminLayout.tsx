@@ -1,5 +1,5 @@
 import { ADMIN_ROUTE } from "@/utils/constants/routes";
-import { Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import Header from "@/components/common/header/Header";
 import AdminDrawer from "@/components/UI/admin/admin-drawer/AdminDrawer";
@@ -75,7 +75,8 @@ const menus = [
 
 export default function AdminLayout({ children }: any) {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation()
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const onToggleDrawer = (show: boolean) => {
     setIsOpen((isOpen) => (isOpen = show));
@@ -91,7 +92,12 @@ export default function AdminLayout({ children }: any) {
       <div className={classNames(cls.section, { [cls.section__open]: isOpen })}>
         <Header />
         <main>
-          <h1 className={cls.section__title}>Page: {location.pathname}</h1>
+          <div className={cls.section__row}>
+            <button className="button" onClick={() => navigate(-1)}>
+              Go Back
+            </button>
+            <h1 className={cls.section__title}>Page: {location.pathname}</h1>
+          </div>
           <Outlet />
         </main>
       </div>
