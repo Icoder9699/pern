@@ -90,6 +90,13 @@ class DeviceController {
 
     res.json({product});
   }
+
+  // TODO: permission only for admins  //
+  async getOneAndEdit(req, res) {
+    const { id, name, price, brand_id, type_id, info  } = req.body
+    const product = await Device.update
+
+  }
 }
 
 module.exports = new DeviceController();

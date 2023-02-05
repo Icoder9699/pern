@@ -25,6 +25,8 @@ const axiosInstance = axios.create(config);
 
 axiosInstance.interceptors.request.use(
   (config) => {
+    console.log('config: ', config);
+    
     if (config.method === "post") {
       toast({
         title: `Success`,

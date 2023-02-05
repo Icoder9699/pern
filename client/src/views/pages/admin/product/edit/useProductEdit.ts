@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 export default function useProductEdit() {
   const [isLoading, setLoading] = useState<boolean>(false)
+  const [brands, setBrands] = useState<[]>([])
   const [product, setProduct] = useState({
     id: null,
     brandId: null,
@@ -25,8 +26,19 @@ export default function useProductEdit() {
     }
   }
 
+  async function getBrands () {
+    try {
+      const response= await axiosInstance.get(`/brand`);
+      console.log('brands', response);
+      setBrands(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   useEffect(() => {
     getData();
+    getBrands();
   }, []);
 
   function handleChange(key: string, value: any) {
@@ -47,6 +59,7 @@ export default function useProductEdit() {
   return {
     product,
     isLoading,
+    brands,
     sendData,
     handleChange,
   };

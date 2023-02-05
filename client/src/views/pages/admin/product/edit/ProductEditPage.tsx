@@ -11,11 +11,9 @@ import {
 } from "@chakra-ui/react";
 import useProductEdit from "./useProductEdit";
 
-let counter = 0;
 function ProductEditPage() {
-  const { product, isLoading, sendData, handleChange } = useProductEdit();
-
-  console.log(counter++);
+  const { product, brands, isLoading, sendData, handleChange } =
+    useProductEdit();
 
   return (
     <>
@@ -41,10 +39,16 @@ function ProductEditPage() {
                   value={product.brandId ?? ""}
                   onChange={(e: any) => handleChange("brandId", e.target.value)}
                 >
-                  <option value="1">1</option>
+                  { !product.brandId && <option value="null">нет бренда</option>}
+                  { 
+                    brands.length && brands.map((brand:any) => (
+                      <option value={ brand.id } key={brand.id}>{ brand.name }</option>
+                    )) 
+                  }
+                  {/* <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
-                  <option value="4">4</option>
+                  <option value="4">4</option> */}
                 </Select>
                 <FormErrorMessage>Brand is required.</FormErrorMessage>
               </FormControl>

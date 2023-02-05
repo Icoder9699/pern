@@ -14,7 +14,7 @@ class BrandController {
 
    async getAll(req, res) {
       const brands = await Brand.findAll()
-      return res.json({data: brands})
+      return res.json([...brands])
    }
 }
 
